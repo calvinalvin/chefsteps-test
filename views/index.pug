@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  script.
+    $(document).ready(function() {
+      $('#goBtn').on('click', function() {
+        var num = $('#numRecords').val();
+        var percentDupe = $('#percentDupe').val();
+        window.location = '/dedupe?num=' + num + '&pctdupe=' + parseInt(percentDupe)/100;
+      });
+    });
+
+  #index-banner.section.no-pad-bot
+    .container
+      br
+      h1.header.center.orange-text De-dupe Emails
+      .row.center
+        h5.header.col.s12.light Generate a bunch of emails then dedupe them.
+
+      br
+      br
+      .row.center
+        h5.text How many should we try?
+        input#numRecords(type="number", min="1", max="100000", style="text-align:center")
+
+        br
+        h5.text What percentage should be duplicates?
+        input#percentDupe(type="number", min="0", max="100", style="text-align:center")
+
+      .row.center
+        a#goBtn.btn-large.waves-effect.waves-light.orange Go!

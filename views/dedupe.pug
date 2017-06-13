@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h4 Generated #{num} records,
+  h4 then removed #{percentDupe*100}% of the duplicates (#{num * percentDupe})
+  br
+  br
+  h5 Deduping took #{benchmark}
+
+  .download-links
+    div You can download the files here:
+      ul
+        li
+          a(href=fullFileUrl) Full file with duplicates`
+        li
+          a(href=dedupedFileUrl) Deduped file
